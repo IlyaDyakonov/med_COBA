@@ -30,7 +30,7 @@ export function FakerAPIprod() {
         <nav className="crud-menu">
             {activeState === 'auth' && loginUser ? (
                 <div className="auth-name">
-                    <h1>Тут выгрузка данных с FakerAPI, уважаемый "{loginUser.username}"!</h1>
+                    <h1>Тут выгрузка данных продуктов с FakerAPI, уважаемый "{loginUser.username}"!</h1>
 
                     <input
                         className="crud-filter-text"
@@ -44,15 +44,15 @@ export function FakerAPIprod() {
                     <ul>
                         {filteredProducts.length ? (
                             filteredProducts.map((product) => (
-                                <li key={product.id} className="product-card">
+                                <ol key={product.id} className="product-card">
                                     <img src={product.image} alt={product.name} width={100} />
                                     <h3>{product.name}</h3>
                                     <p>{product.description}</p>
                                     <p>Цена: {product.price}</p>
-                                </li>
+                                </ol>
                             ))
                         ) : (
-                            <p>Ничего не найдено.</p>
+                            <p className="find">Ничего не найдено.</p>
                         )}
                     </ul>
                 </div>

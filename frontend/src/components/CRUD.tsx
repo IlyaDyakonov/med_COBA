@@ -5,7 +5,7 @@ import Page404 from './Page404/Page404';
 import AdminPanel from "./AdminPanelPage/AdminPanel";
 import { StartPages } from "./StartPage/StartPages";
 import { FakerAPIprod } from "./FakerAPI/FakerAPIprod/FakerAPIprod";
-
+import './CRUD.css';
 
 
 /**
