@@ -73,7 +73,7 @@ def get_detail_user_list(request):
     if not request.user.is_staff:
         return Response({"detail": "You do not have permission to perform this action."}, status=status.HTTP_403_FORBIDDEN)
     users = User.objects.all().values(
-        'id', 'username', 'first_name', 'last_name', 'email', 'is_staff', 'is_superuser', 'is_doctor'
+        'id', 'username', 'first_name', 'last_name', 'email', 'is_staff', 'is_superuser'
     )
     if users:
         return Response(users, status=status.HTTP_200_OK)

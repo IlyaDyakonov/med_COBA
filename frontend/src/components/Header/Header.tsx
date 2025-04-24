@@ -17,7 +17,7 @@ const Header:React.FC = () => {
                     <div className="header-one">
                         <div className="header-component">
                             <div className="header-name">
-                                <h1>Ваша клиника «СОВА!»</h1>
+                                <h1>Семья многопрофильныйх клиник «СОВА!»</h1>
                             </div>
                             <img src={`${prefix}3055.webp`} alt="onmed" className="logo-img"></img>
                         </div>
@@ -31,7 +31,7 @@ const Header:React.FC = () => {
                     <div className="header-one">
                         <div className="header-component">
                             <div className="header-name">
-                                <h1>Ваш клиника «СОВА!»</h1>
+                                <h1>Семья многопрофильныйх клиник «СОВА!»</h1>
                             </div>
                             <img src={`${prefix}3055.webp`} alt="onmed" className="logo-img"></img>
                         </div>
