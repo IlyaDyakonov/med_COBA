@@ -23,11 +23,7 @@ export function StartPages() {
             {activeState === 'auth' && loginUser ? (
                 <div className="auth-name">
                 <h1>Добро пожаловать в наш сервис, уважаемый "{loginUser.username}"!</h1>
-                {/* {l ? (
-                    <h1>Что бы выбрать клиента, нажмите <NavLink to="/doctor" className={'crud-menu__item'}>Clik!</NavLink></h1>
-                ) : (
-                    <h1>Что бы выбрать доктора, нажмите <NavLink to="/customer" className={'crud-menu__item'}>Clik!</NavLink></h1>
-                )} */}
+                <h1>Что бы перейти к данным FakerAPI <NavLink to="/fakerapiprod" className={'crud-menu__item'}>Clik!</NavLink></h1>
             </div>
             ) : (
                 <div className="menu-login">
