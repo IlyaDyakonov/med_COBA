@@ -1,6 +1,6 @@
 import { useEffect, useState, useCallback } from 'react';
 
-interface Product {
+interface Products {
     id: number;
     name: string;
     description: string;
@@ -13,7 +13,7 @@ interface Img {
 };
 
 export const useFakerProducts = () => {
-    const [products, setProducts] = useState<Product[]>([]);
+    const [products, setProducts] = useState<Products[]>([]);
     const [loading, setLoading] = useState(false); // начальное значение false
     const [error, setError] = useState<string | null>(null);
     const [page, setPage] = useState(1); // добавим текущую страницу

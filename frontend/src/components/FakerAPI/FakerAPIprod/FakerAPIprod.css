@@ -2,6 +2,7 @@
     background-color: #c0ffb08a;
     border-radius: 12px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    width: 1200px;
     padding: 1rem;
     margin: 1rem;
     text-align: center;
@@ -9,7 +10,7 @@
 }
 
 .product-card:hover {
-    transform: translateY(-4px);
+    transform: translateY(-3px);
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
 }
 
@@ -21,7 +22,7 @@
 }
 
 .product-card h3 {
-    font-size: 1.2rem;
+    font-size: 1.3rem;
     margin: 0.5rem 0;
     color: #333;
 }
@@ -49,4 +50,10 @@
     margin: 1rem;
     text-align: center;
     transition: transform 0.2s ease-in-out;
+}
+
+h2 {
+    font-size: 3rem;
+    margin: 1rem 0;
+    color: #333;
 }
