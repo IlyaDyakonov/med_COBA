@@ -4,7 +4,7 @@ import { RootState } from "../../../store";
 import { useSelector } from "react-redux";
 import { useFetchCheckUserStatus } from '../../../slices/useFetchCheckUserStatus';
 import { useFakerProducts } from "./Products";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 
 /**
@@ -15,7 +15,7 @@ export function FakerAPIprod() {
     const loginUser = useSelector((state: RootState) => state.users.loginUser);
     const activeState = useSelector((state: RootState) => state.users.activeState);
     const loginUser1 = useFetchCheckUserStatus();
-    const { products, loading, error } = useFakerProducts();
+    const { products, loading, error, loadMore } = useFakerProducts();
 
     const [searchTerm, setSearchTerm] = useState('');
 
@@ -23,7 +23,18 @@ export function FakerAPIprod() {
         product.name.toLowerCase().includes(searchTerm.toLowerCase())
     );
 
-    if (loading) return <p>Загрузка продуктов...</p>;
+    useEffect(() => {
+        const handleScroll = () => {
+            const nearBottom = window.innerHeight + window.scrollY >= document.body.offsetHeight - 100;
+            if (nearBottom && !loading && searchTerm === '') {
+                loadMore();
+            }
+        };
+    
+        window.addEventListener('scroll', handleScroll);
+        return () => window.removeEventListener('scroll', handleScroll);
+    }, [loading, loadMore, searchTerm]); 
+
     if (error) return <p>{error}</p>;
 
     return (
@@ -43,18 +54,19 @@ export function FakerAPIprod() {
                     <h2>Список продуктов:</h2>
                     <ul>
                         {filteredProducts.length ? (
-                            filteredProducts.map((product) => (
-                                <ol key={product.id} className="product-card">
-                                    <img src={product.image} alt={product.name} width={100} />
+                            filteredProducts.map((product, index) => (
+                                <li key={`${product.id}-${index}`} className="product-card">
+                                    <img src={product.images[0].url} alt={product.name} width={100} />
                                     <h3>{product.name}</h3>
                                     <p>{product.description}</p>
                                     <p>Цена: {product.price}</p>
-                                </ol>
+                                </li>
                             ))
                         ) : (
                             <p className="find">Ничего не найдено.</p>
                         )}
                     </ul>
+                    {loading && <p className="find">Загрузка дополнительных продуктов... минутку!</p>}
                 </div>
             ) : (
                 <div className="menu-login">
