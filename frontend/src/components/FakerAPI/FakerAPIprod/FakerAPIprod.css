@@ -57,3 +57,35 @@ h2 {
     margin: 1rem 0;
     color: #333;
 }
+
+.product-details {
+    width: 100%;
+    max-width: 800px;
+    margin: 20px auto;
+    border-collapse: collapse;
+    font-family: Arial, sans-serif;
+    background-color: #727272;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.product-details th, .product-details td {
+    border: 2px solid #19ff38;
+    padding: 12px 15px;
+    text-align: left;
+}
+
+.product-details th {
+    background-color: #4e4e4e;
+    width: 30%;
+    font-weight: bold;
+}
+
+.product-details td {
+    width: 70%;
+}
+
+.product-details img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}

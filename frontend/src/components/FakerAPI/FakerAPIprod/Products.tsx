@@ -22,7 +22,7 @@ export const useFakerProducts = () => {
         setLoading(true);
         try {
             await new Promise((resolve) => setTimeout(resolve, 2000));
-
+            
             const res = await fetch(`https://fakerapi.it/api/v2/products?_locale=ru_RU&_quantity=3&page=${pageNumber}`);
             const data = await res.json();
             setProducts((prev) => [...prev, ...data.data]); // добавляем новые продукты к предыдущим
