@@ -60,7 +60,7 @@ export function FakerAPIprod() {
                                     <h3>{product.name}</h3>
                                     <p>{product.description}</p>
                                     <p>Цена: {product.price}</p>
-                                    <NavLink to={`/fakerapiproddetails/${product.id}`} state={{ product }} className={'crud-menu__item'}>Подробнее о статье.</NavLink>
+                                    <NavLink to={`/fakerapiproddetails`} state={{ product }} className={'crud-menu__item'}>Подробнее о статье.</NavLink>
                                 </li>
                             ))
                         ) : (

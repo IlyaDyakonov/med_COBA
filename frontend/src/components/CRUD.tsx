@@ -5,7 +5,7 @@ import Page404 from './Page404/Page404';
 import AdminPanel from "./AdminPanelPage/AdminPanel";
 import { StartPages } from "./StartPage/StartPages";
 import { FakerAPIprod } from "./FakerAPI/FakerAPIprod/FakerAPIprod";
-import { FakerAPIprodDetails } from "./FakerAPI/FakerAPIprod/FakerAPIProdDetails";
+import { FakerAPIprodDetails } from "./FakerAPI/FakerAPIprod/FakerAPIprodDetails";
 import './CRUD.css';
 
 
@@ -20,7 +20,7 @@ function CRUD() {
                     <Route path="/login" element={<Login />} />
                     <Route path="/register" element={<UseReg />} />
                     <Route path="/fakerapiprod" element={<FakerAPIprod />} />
-                    <Route path="/fakerapiproddetails/:id" element={<FakerAPIprodDetails />} />
+                    <Route path="/fakerapiproddetails/" element={<FakerAPIprodDetails />} />
                     <Route path="/admin" element={<AdminPanel />} />
                     <Route path="*" element={<Page404 />} />
                 </Routes>

@@ -1,44 +1,28 @@
-import { NavLink, useLocation } from "react-router-dom";
-// import './StartPages.css';
+import { NavLink, useLocation, useNavigate } from "react-router-dom";
 import { RootState } from "../../../store";
 import { useSelector } from "react-redux";
 import { useFetchCheckUserStatus } from '../../../slices/useFetchCheckUserStatus';
-// import { useEffect, useState } from "react";
 import './FakerAPIprod.css';
+import { useEffect } from "react";
 
-
-interface Product {
-    id: number;
-    name: string;
-    description: string;
-    ean: string;
-    upc: string;
-    image: string;
-    images: {
-        title: string;
-        description: string;
-        url: string;
-    }[];
-    net_price: number;
-    price: number;
-    taxes: number;
-    categories: string[];
-    tags: string[];
-}
 
 /**
- * Компонент для отображения главной страницы сайта.
- * Использует текущее местоположение для определения активной ссылки.
+ * Компонент для отображения деталей продукта.
  */
 export function FakerAPIprodDetails() {
     const location = useLocation();
-    console.log(location);
+    const navigate = useNavigate();
 
     const loginUser = useSelector((state: RootState) => state.users.loginUser);
     const activeState = useSelector((state: RootState) => state.users.activeState);
     const loginUser1 = useFetchCheckUserStatus();
 
     const product = location.state?.product;
+    console.log('Текущий продукт:', product);
+
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, []);
 
     if (!product) {
         return <p>Нет данных о продукте.</p>;
@@ -71,19 +55,18 @@ export function FakerAPIprodDetails() {
                                     <tr>
                                         <th>Изображение продукта</th><td><img src={product.image} alt={product.name} width="150" /></td>
                                     </tr>
-                                    {product.images.map((image: string, index: number) => (
+                                    {product.images.map((image: { title: string; description: string; url: string }, index: number) => (
                                         <tr key={index}>
                                             <th>Доп описание {index + 1}</th>
                                             <td>
                                                 <div style={{ display: 'flex', flexDirection: 'column' }}>
                                                     <img src={image.url} alt={product.name} width="150" />
                                                     <tr>
-                                                        <th>Title</th><td>{image.title}</td>
+                                                        <th>Название изображения {index + 1}</th><td>{image.title}</td>
                                                     </tr>
                                                     <tr>
-                                                        <th>Description</th><td>{image.description}</td>
+                                                        <th>Описание изображения {index + 1}</th><td>{image.description}</td>
                                                     </tr>
-                                                    
                                                 </div>
                                             </td>
                                         </tr>
@@ -100,13 +83,11 @@ export function FakerAPIprodDetails() {
                                     <tr>
                                         <th>Налоги</th><td>{product.taxes}</td>
                                     </tr>
-                                    <tr>
-                                        <th>Категории</th><td>{product.categories}</td>
-                                    </tr>
                                 </tbody>
                             </table>
                         )}
                 </div>
+                <button onClick={() => navigate(-1)} className="back-button">Назад</button> {/* Кнопка для возврата */}
             </div>
 
             ) : (
