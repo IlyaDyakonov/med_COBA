@@ -89,3 +89,23 @@ h2 {
     height: auto;
     display: block;
 }
+
+/* Общие стили для ссылок */
+.back-button {
+    color: #fff; /* Цвет текста ссылок */
+    text-decoration: none; /* Убираем подчеркивание */
+    font-size: 1.5rem; /* Размер шрифта */
+    padding: 5px 10px; /* Внутренние отступы */
+    transition: background-color 0.3s, color 0.3s; /* Плавный переход цвета фона и текста */
+    border-radius: 4px; /* Скругление углов */
+    background-color: #009dff; /* Цвет фона для активной ссылки */
+    color: #fff; /* Цвет текста для активной ссылки */
+    cursor: pointer;
+    margin-bottom: 40px;
+}
+
+/* Стили при наведении на ссылки */
+.back-button:hover {
+    background-color: #052335; /* Цвет фона при наведении */
+    color: #fff; /* Цвет текста при наведении */
+}

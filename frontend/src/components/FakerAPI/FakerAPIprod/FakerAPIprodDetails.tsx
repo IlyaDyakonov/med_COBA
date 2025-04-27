@@ -87,7 +87,7 @@ export function FakerAPIprodDetails() {
                             </table>
                         )}
                 </div>
-                <button onClick={() => navigate(-1)} className="back-button">Назад</button> {/* Кнопка для возврата */}
+                <button onClick={() => navigate(-1)} className="back-button">Назад</button>
             </div>
 
             ) : (
